@@ -5,7 +5,7 @@ D-SCRIPT/preprocessing
 
 # DeepTrio
 DeepTrio/data
-DeepTrio/defualt
+DeepTrio/default
 DeepTrio/preprocessing
 DeepTrio/*RESULT*
 DeepTrio/save_model
@@ -15,3 +15,6 @@ PIPR/models
 PIPR/*preprocessing
 PIPR/*result
 PIPR/*predict
+
+# raw data
+RAW_DATA
