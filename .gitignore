@@ -1,0 +1,17 @@
+# D-SCRIPT
+D-SCRIPT/*RESULT*
+D-SCRIPT/models
+D-SCRIPT/preprocessing
+
+# DeepTrio
+DeepTrio/data
+DeepTrio/defualt
+DeepTrio/preprocessing
+DeepTrio/*RESULT*
+DeepTrio/save_model
+
+# PIPR
+PIPR/models
+PIPR/*preprocessing
+PIPR/*result
+PIPR/*predict
