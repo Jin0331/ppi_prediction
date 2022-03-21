@@ -177,7 +177,7 @@ if __name__ == "__main__":
                   )
 
   FILE_NAME = datetime.now().strftime("%Y%m%d-%H%M%S")
-  Path(out + '/prediction_result').mkdir(parents=True, exist_ok=True)
-  result.to_csv(out + '/prediction_result/' + FILE_NAME + '_predictions.tsv', sep="\t")
+  # Path(out + '/prediction_result').mkdir(parents=True, exist_ok=True)
+  result.to_csv(out + '/' + FILE_NAME + '_predictions.tsv', sep="\t")
   # print(result)
   

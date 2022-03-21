@@ -27,6 +27,21 @@ Options:
 
 * ```Rscript --vanilla run_PPI_preprocessing.R -a **ADD SEQUENCE** -r **REFERENCE** -t **pipr/dscript/deeptrio** -o PATH```
 
+```
+<Example>
+- PIPR
+cd ppi_prediction
+Rscript --vanilla run_PPI_preprocessing.R -a RAW_DATA/IGSF1_protein.txt -r RAW_DATA/Homo_sapiens.GRCh38.cdhit_5.fa -t pipr -o PIPR/preprocessing/
+
+- D-SCRIPT
+cd ppi_prediction
+Rscript --vanilla run_PPI_preprocessing.R -a RAW_DATA/IGSF1_protein.txt -r RAW_DATA/Homo_sapiens.GRCh38.cdhit_5.fa -t dscript -s 6000 -o D-SCRIPT/preprocessing/
+
+- DeepTrio
+cd ppi_prediction
+Rscript --vanilla run_PPI_preprocessing.R -a RAW_DATA/IGSF1_protein.txt -r RAW_DATA/Homo_sapiens.GRCh38.cdhit_5.fa -t deeptrio -o DeepTrio/preprocessing
+```
+
 <br>
 
 ### **PIPR Prediction**
@@ -50,7 +65,12 @@ optional arguments:
                         baseline embedder
 ```
 
-* ```python src/prediction.py -b models/ -t baseline -d PIPR_preprocessing/PIPR_pairs.fasta -p PIPR_preprocessing/PIPR_pairs.tsv -e models/ac5_aph.txt```
+```
+<Example>
+cd PIPR
+python src/prediction.py -b models/ -t baseline -d preprocessing/PIPR_pairs.fasta -p preprocessing/PIPR_pairs.tsv -e models/ac5_aph.txt -o RESULT/
+```
+
 
 <br>
 
@@ -66,9 +86,10 @@ optional arguments:
   -m D-SCRIPT human model
 ```
 
-
-
-* ```bash src/embed_predict.sh -b preprocessing/D-SCRIPT_preprocessing/ -r ~/gitworking/PPI_pred/D-SCRIPT/RESULT -d 0 -m models/human_v1.sav```
+```
+cd D-SCRIPT/
+bash src/embed_predict.sh -b preprocessing/ -r RESULT/ -d 0 -m models/human_v1.sav
+```
 
 <br>
 
@@ -96,4 +117,8 @@ optional arguments:
                         extension
 ```
 
-* ```python src/main.py -p1 preprocessing/DeepTrio_preprocessing/DeepTrio_p1.fasta -p2 preprocessing/DeepTrio_preprocessing/DeepTrio_p2.fasta -m save_model/20220223-122534/DeepTrio_search_7.h5 -o RESULT```
+```
+<Example>
+cd DeepTrio
+python src/main.py -p1 preprocessing/DeepTrio_preprocessing/DeepTrio_p1.fasta -p2 preprocessing/DeepTrio_preprocessing/DeepTrio_p2.fasta -m models/20220318-093520/DeepTrio_search_41.h5 -o RESULT
+```

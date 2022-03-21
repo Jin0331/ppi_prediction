@@ -74,9 +74,9 @@ if(length(opt) == 0){
       pairs <- pairs[-1, ]
       
       
-      dir.create(paste0(out, "/PIPR_preprocessing"), showWarnings = F)
-      write_delim(id2seq, file = paste0(out, "/PIPR_preprocessing/PIPR_pairs.fasta"), delim = "\t", col_names = F)
-      write_delim(pairs, file = paste0(out, "/PIPR_preprocessing/PIPR_pairs.tsv"), delim = "\t", col_names = F)
+      dir.create(out, showWarnings = F)
+      write_delim(id2seq, file = paste0(out, "/PIPR_pairs.fasta"), delim = "\t", col_names = F)
+      write_delim(pairs, file = paste0(out, "/PIPR_pairs.tsv"), delim = "\t", col_names = F)
       print("Done!!")
       # return(list(id2seq, pairs))
     }
@@ -114,7 +114,7 @@ if(length(opt) == 0){
           return(tmp[1])
         }) %>% unlist() %>% tibble(id = .)
       
-      print(paste0("id : ", length(id_list)))
+      # print(paste0("id : ", length(id_list)))
       
       id2seq <- bind_cols(id_list, seq_list) %>% 
         filter(50 < nchar(seq) & nchar(seq) < 1500)
@@ -124,7 +124,7 @@ if(length(opt) == 0){
       pairs <- id2seq %>% pull(1) %>% 
         split(., ceiling(seq_along(.) / n_split))
       
-      dir.create(paste0(out, "/D-SCRIPT_preprocessing"), showWarnings = F)
+      dir.create(out, showWarnings = F)
       lapply(X = names(pairs), FUN = function(index){
         id2seq_split <- pairs[[index]] %>% lapply(X = ., FUN = function(value){
           temp <- id2seq %>% 
@@ -146,8 +146,8 @@ if(length(opt) == 0){
           select(value)
         
         
-        write_delim(id2seq_split, file = paste0(out, "/D-SCRIPT_preprocessing/DSCRIPT_pairs_",index,".fasta"), delim = "\t", col_names = F)
-        write_delim(pairs_split, file = paste0(out, "/D-SCRIPT_preprocessing/DSCRIPT_pairs_",index,".tsv"), delim = "\t", col_names = F)
+        write_delim(id2seq_split, file = paste0(out, "/DSCRIPT_pairs_",index,".fasta"), delim = "\t", col_names = F)
+        write_delim(pairs_split, file = paste0(out, "/DSCRIPT_pairs_",index,".tsv"), delim = "\t", col_names = F)
         
         # return(list(id2seq_split, pairs_split))
       })
@@ -156,13 +156,13 @@ if(length(opt) == 0){
   GRCh38_seq_pair_DeepTrio <- function(add_file, seq_path, out){
     ppi_seq <- read_lines(file = seq_path)
     #
-    dir.create(paste0(out, "/DeepTrio_preprocessing"), showWarnings = F)
+    dir.create(out, showWarnings = F)
 
     read_delim(file = add_file, delim = "\t", col_names = F, show_col_types = F) %>% 
       mutate(X1 = paste0(">", X1)) %>% 
       gather() %>% 
       select(value) %>% 
-      write_delim(file = paste0(out, "/DeepTrio_preprocessing/DeepTrio_p1.fasta"), col_names = F) ###### change
+      write_delim(file = paste0(out, "/DeepTrio_p1.fasta"), col_names = F) ###### change
     
     ### id2seq
     id_list <- list()
@@ -198,7 +198,7 @@ if(length(opt) == 0){
     for(row in 1:nrow(id2seq)){
       for(col in 1:ncol(id2seq)){
         id2seq[row, col] %>% 
-          write_lines(file = paste0(out, "/DeepTrio_preprocessing/DeepTrio_p2.fasta"), append = T)
+          write_lines(file = paste0(out, "/DeepTrio_p2.fasta"), append = T)
       }}
   }
 

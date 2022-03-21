@@ -1,20 +1,19 @@
 # D-SCRIPT
-D-SCRIPT/*RESULT*
+D-SCRIPT/RESULT
 D-SCRIPT/models
 D-SCRIPT/preprocessing
 
 # DeepTrio
 DeepTrio/data
-DeepTrio/default
 DeepTrio/preprocessing
-DeepTrio/*RESULT*
-DeepTrio/save_model
+DeepTrio/RESULT
+DeepTrio/models
 
 # PIPR
 PIPR/models
-PIPR/*preprocessing
-PIPR/*result
-PIPR/*predict
+PIPR/preprocessing
+PIPR/RESULT
+PIPR/preprocess_predict
 
 # raw data
 RAW_DATA
