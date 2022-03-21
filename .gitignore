@@ -17,3 +17,5 @@ PIPR/preprocess_predict
 
 # raw data
 RAW_DATA
+*/__pycache__
+__pycache__
