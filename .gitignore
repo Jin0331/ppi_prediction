@@ -19,3 +19,4 @@ PIPR/preprocess_predict
 RAW_DATA
 */__pycache__
 __pycache__
+*.ipynb
