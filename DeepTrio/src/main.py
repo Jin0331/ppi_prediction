@@ -129,8 +129,8 @@ if __name__ == "__main__":
 
     Path(file_output).mkdir(parents=True, exist_ok=True)
     with open(file_output + '/DeepTrio-Result', 'w') as w:
-        w.write('PROTEIN-1\PROTEIN-2\tProbability\tResult\n')
-        print('PROTEIN\PROTEIN\tProbability\tResult')
+        w.write('PROTEIN-1\tPROTEIN-2\tProbability\tResult\n')
+        print('PROTEIN\tPROTEIN\tProbability\tResult')
         output_data = {}
         for n in range(len(predictions_test)):
             output_data[group_name[n]] = {}
