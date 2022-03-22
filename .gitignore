@@ -22,3 +22,6 @@ __pycache__
 *.ipynb
 *.log
 *.h5
+*.tsv
+*.csv
+DeepTrio-Result
