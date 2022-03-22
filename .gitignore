@@ -20,3 +20,5 @@ RAW_DATA
 */__pycache__
 __pycache__
 *.ipynb
+*.log
+*.h5
