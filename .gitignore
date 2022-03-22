@@ -15,11 +15,13 @@ PIPR/preprocessing
 PIPR/RESULT
 PIPR/preprocess_predict
 
+# ProteinPrompt
+ProteinPrompt/
+
 # raw data
 RAW_DATA
 */__pycache__
 __pycache__
-*.ipynb
 *.log
 *.h5
 *.tsv
